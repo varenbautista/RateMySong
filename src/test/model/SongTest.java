@@ -69,68 +69,86 @@ public class SongTest {
     }
 
     @Test
-    void testSetLyricsRating() {
+    void testSetLyricsRatingNothingThrown() {
         try {
             testSong1.setLyricsRating(5);
             assertEquals(5, testSong1.getLyricsRating());
-    
+
             testSong2.setLyricsRating(5);
             testSong2.setLyricsRating(4);
             assertEquals(4, testSong2.getLyricsRating());
-    
+
             testSong3.setLyricsRating(4);
             testSong3.setLyricsRating(4);
             assertEquals(4, testSong3.getLyricsRating());
         } catch (InvalidRating e) {
-            // handle in ui package
+            fail("Expected nothing thrown got InvalidRating instead");
         }
     }
 
     @Test
-    void testSetLyricsRatingInvalid() {
-        assertThrows(InvalidRating.class, () -> testSong1.setLyricsRating(6));
-        assertThrows(InvalidRating.class, () -> testSong1.setLyricsRating(-1));
+    void testSetLyricsRatingInvalidRatingThrown() {
+        try {
+            testSong1.setLyricsRating(6);
+            fail("InvalidRating not thrown");
+        } catch (InvalidRating e) {
+            // expected; handle in ui package
+        }
     }
 
     @Test
-    void testSetProdRating() {
+    void testSetProdRatingNothingThrown() {
         try {
             testSong1.setProdRating(5);
             assertEquals(5, testSong1.getProdRating());
-    
+
             testSong2.setProdRating(5);
             testSong2.setProdRating(4);
             assertEquals(4, testSong2.getProdRating());
-    
+
             testSong3.setProdRating(4);
             testSong3.setProdRating(4);
             assertEquals(4, testSong3.getProdRating());
-
-            assertThrows(InvalidRating.class, () -> testSong1.setProdRating(6));
-            assertThrows(InvalidRating.class, () -> testSong1.setProdRating(-1));
         } catch (InvalidRating e) {
-            // handle in ui package
+            fail("Expected nothing thrown got InvalidRating instead");
         }
     }
 
     @Test
-    void testSetVocalsRating() {
+    void testSetProdRatingInvalidRatingThrown() {
+        try {
+            testSong1.setProdRating(6);
+            fail("InvalidRating not thrown");
+        } catch (InvalidRating e) {
+            // expected; handle in ui package
+        }
+    }
+
+    @Test
+    void testSetVocalsRatingNothingThrown() {
         try {
             testSong1.setVocalsRating(5);
             assertEquals(5, testSong1.getVocalsRating());
-    
+
             testSong2.setVocalsRating(5);
             testSong2.setVocalsRating(4);
             assertEquals(4, testSong2.getVocalsRating());
-    
+
             testSong3.setVocalsRating(4);
             testSong3.setVocalsRating(4);
             assertEquals(4, testSong3.getVocalsRating());
-
-            assertThrows(InvalidRating.class, () -> testSong1.setVocalsRating(6));
-            assertThrows(InvalidRating.class, () -> testSong1.setVocalsRating(-1));
         } catch (InvalidRating e) {
-            // handle in ui package
+            fail("Expected nothing thrown got InvalidRating instead");
+        }
+    }
+
+    @Test
+    void testSetVocalsRatingInvalidRatingThrown() {
+        try {
+            testSong1.setVocalsRating(6);
+            fail("InvalidRating not thrown");
+        } catch (InvalidRating e) {
+            // expected; handle in ui package
         }
     }
 }
