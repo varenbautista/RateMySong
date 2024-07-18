@@ -23,4 +23,4 @@ than what is presented in a three minute expression of the artist's character.
 - As a user, I want to be able to list all inputted songs from the greatest to least overall score.
 - As a user, I want to be able to search for an already inputted song and change its existing rating 
 for lyricism, production, and vocals. 
-- As a user, I want to be able to add personal notes and thoughts to each song.
+- As a user, I want to be able to favourite a song and have its status listed in the music library.
