@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import exceptions.*;
 
 /*
@@ -9,7 +12,7 @@ import exceptions.*;
  * setProdRating, and setVocals updates the respective rating if it is valid. if the input
  * is not valid, the methods throw the InvalidRating exception.
  */
-public class Song {
+public class Song implements Writable {
     private String title;
     private String artist;
     private String genre;
@@ -109,5 +112,18 @@ public class Song {
 
     public int getVocalsRating() {
         return vocalsRating;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("title", title);
+        json.put("artist", artist);
+        json.put("genre", genre);
+        json.put("lyrics rating", lyricsRating);
+        json.put("production rating", prodRating);
+        json.put("vocals rating", vocalsRating);
+        json.put("is favourite", isFavourite);
+        return json;
     }
 }

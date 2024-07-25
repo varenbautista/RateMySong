@@ -24,3 +24,5 @@ than what is presented in a three minute expression of the artist's character.
 - As a user, I want to be able to search for an already inputted song and change its existing rating 
 for lyricism, production, and vocals. 
 - As a user, I want to be able to favourite a song and have its status listed in the music library.
+- As a user, I want to be able to save my music library and ratings (if I so choose).
+- As a user, I want to be able to load my music library and ratings (if I so choose).

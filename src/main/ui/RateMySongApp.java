@@ -1,19 +1,30 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import exceptions.InvalidRating;
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
+
 
 // RateMySong application
+// data persistence adapted from JsonSerializationDemo
 public class RateMySongApp {
+    private static final String JSON_STORE = "./data/songLibrary.json";
     private SongLibrary library;
     private Scanner scanner;
     private boolean isRunning;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     // EFFECTS: runs the application
-    public RateMySongApp() {
+    public RateMySongApp() throws FileNotFoundException {
         init();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         System.out.println("Welcome to RateMySong!");
         while (this.isRunning) {
             handleMenu();
@@ -41,6 +52,8 @@ public class RateMySongApp {
         System.out.println("\ta -> add a song to your music library");
         System.out.println("\tv -> view your music libary");
         System.out.println("\ts -> search for a song");
+        System.out.println("\tsl -> save library to file");
+        System.out.println("\tll -> load library from file");
         System.out.println("\tq -> quit");
     }
 
@@ -57,11 +70,41 @@ public class RateMySongApp {
             case "s":
                 searchForSong();
                 break;
+            case "sl":
+                saveSongLibrary();
+                break;
+            case "ll":
+                loadSongLibrary();
+                break;
             case "q":
                 quitApp();
                 break;
             default:
                 System.out.println("Invalid option! Please try again.");
+        }
+    }
+
+    // EFFECTS: saves music library to file
+    private void saveSongLibrary() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(library);
+            jsonWriter.close();
+            System.out.println("Saved your music library to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save file to " + JSON_STORE);
+        }
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads music library form file
+    private void loadSongLibrary() {
+        try {
+            library = jsonReader.read();
+            System.out.println("Loaded your music library from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file " + JSON_STORE);
         }
     }
 
@@ -117,16 +160,12 @@ public class RateMySongApp {
             System.out.printf("Please rate the song's %s on a scale from 1 to 5:%n", type);
             rating = scanner.nextInt();
             try {
-                switch (type) {
-                    case "lyrics":
-                        song.setLyricsRating(rating);
-                        break;
-                    case "production":
-                        song.setProdRating(rating);
-                        break;
-                    case "vocals":
-                        song.setVocalsRating(rating);
-                        break;
+                if (type.equals("lyrics")) {
+                    song.setLyricsRating(rating);
+                } else if (type.equals("production")) {
+                    song.setProdRating(rating);
+                } else if (type.equals("vocals")) {
+                    song.setVocalsRating(rating);
                 }
                 isValidRating = true;
                 System.out.println("Rating updated!\n");
@@ -201,30 +240,23 @@ public class RateMySongApp {
     // MODIFIES: this
     // EFFECTS: processes user command for one song
     private void processSongCommand(String input, Song song) {
-        switch (input) {
-            case "cl":
-                setRating(song, "lyrics");
-                songMenu(song);
-                break;
-            case "cp":
-                setRating(song, "production");
-                songMenu(song);
-                break;
-            case "cv":
-                setRating(song, "vocals");
-                songMenu(song);
-                break;
-            case "f":
-                song.setIsFavourite(!song.getIsFavourite());
-                System.out.println("Favourite Status updated.");
-                songMenu(song);
-                break;
-            case "q":
-                System.out.println("Returning to main menu...\n");
-                break;
-            default:
-                System.out.println("Invalid option! Please try again.");
-                break;
+        if (input.equals("cl")) {
+            setRating(song, "lyrics");
+            songMenu(song);
+        } else if (input.equals("cp")) {
+            setRating(song, "production");
+            songMenu(song);
+        } else if (input.equals("cv")) {
+            setRating(song, "vocals");
+            songMenu(song);
+        } else if (input.equals("f")) {
+            song.setIsFavourite(!song.getIsFavourite());
+            System.out.println("Favourite Status updated.");
+            songMenu(song);
+        } else if (input.equals("q")) {
+            System.out.println("Returning to main menu... \n");
+        } else {
+            System.out.println("Invalid option! Please try again.");
         }
     }
 

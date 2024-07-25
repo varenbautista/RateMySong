@@ -1,0 +1,29 @@
+{"library": [
+    {
+        "artist": "Taylor Swift",
+        "genre": "Country",
+        "lyrics rating": 1,
+        "title": "Back to December",
+        "vocals rating": 1,
+        "production rating": 1,
+        "is favourite": false
+    },
+    {
+        "artist": "Lana Del Rey",
+        "genre": "Alt Rock",
+        "lyrics rating": 1,
+        "title": "Happiness is a Butterfly",
+        "vocals rating": 1,
+        "production rating": 1,
+        "is favourite": false
+    },
+    {
+        "artist": "Charli XCX",
+        "genre": "Hyperpop",
+        "lyrics rating": 1,
+        "title": "Vroom Vroom",
+        "vocals rating": 1,
+        "production rating": 1,
+        "is favourite": false
+    }
+]}

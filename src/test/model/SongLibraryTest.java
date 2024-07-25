@@ -62,14 +62,14 @@ public class SongLibraryTest {
 
     @Test
     void testGetSortedSongs() {
-        library.addSong(testSong2);
         library.addSong(testSong3);
+        library.addSong(testSong2);
         library.addSong(testSong1);
 
         List<Song> sortedSongs = library.getSortedSongs();
-        assertEquals("Happiness is a Butterfly", sortedSongs.get(0).getTitle());
-        assertEquals("Vroom Vroom", sortedSongs.get(1).getTitle());
-        assertEquals("Back to December", sortedSongs.get(2).getTitle());
+        assertEquals(testSong1, sortedSongs.get(0));
+        assertEquals(testSong3, sortedSongs.get(1));
+        assertEquals(testSong2, sortedSongs.get(2));
 
     }
 

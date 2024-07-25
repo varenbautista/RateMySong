@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 /*
  * represents a library of songs (list of songs). the library is intialized as empty.
  * addSong adds a song to the library, getSongCount returns the number of songs in the library,
@@ -10,7 +15,7 @@ import java.util.List;
  * index from greatest to lowest overall score. findSong searches the library and returns
  * the song whose title matches the inputted String.
  */
-public class SongLibrary {
+public class SongLibrary implements Writable {
     private List<Song> library;
 
     // EFFECTS: creates an empty song library
@@ -58,5 +63,22 @@ public class SongLibrary {
             }
         }
         return null;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("library", libraryToJson());
+        return json;
+    }
+
+    // EFFECTS: returns songs in the song library as a JSON array
+    private JSONArray libraryToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Song s : library) {
+            jsonArray.put(s.toJson());
+        }
+        return jsonArray;
     }
 }

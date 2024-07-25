@@ -1,0 +1,31 @@
+{
+    "library": [
+        {
+            "title": "Happiness is a Butterfly",
+            "artist": "Lana Del Rey",
+            "genre": "Alt Rock",
+            "lyrics rating": 5,
+            "production rating": 5,
+            "vocals rating": 5,
+            "is favourite": true
+        },
+        {
+            "title": "Back to December",
+            "artist": "Taylor Swift",
+            "genre": "Country",
+            "lyrics rating": 5,
+            "production rating": 4,
+            "vocals rating": 4,
+            "is favourite": true
+        },
+        {
+            "title": "Vroom Vroom",
+            "artist": "Charli XCX",
+            "genre": "Hyperpop",
+            "lyrics rating": 4,
+            "production rating": 5,
+            "vocals rating": 4,
+            "is favourite": true
+        }
+    ]
+}
