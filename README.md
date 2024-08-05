@@ -20,9 +20,23 @@ than what is presented in a three minute expression of the artist's character.
 
 ## User Stories
 - As a user, I want to be able to create a song and rate its lyricism, production, and vocals from 1-5.
+- As a user, I want to be able to remove a song from the music library.
 - As a user, I want to be able to list all inputted songs from the greatest to least overall score.
 - As a user, I want to be able to search for an already inputted song and change its existing rating 
 for lyricism, production, and vocals. 
 - As a user, I want to be able to favourite a song and have its status listed in the music library.
 - As a user, I want to be able to save my music library and ratings (if I so choose).
 - As a user, I want to be able to load my music library and ratings (if I so choose).
+
+# Instructions for Grader
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by
+pressing the "Add" button to start a sequence of popups to add a song to your music library.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by
+pressing the "Search" button to search for a song in your music library and update its ratings and favourite
+status. 
+- You can remove a song by selecting a song and pressing the "Remove" button.
+- You can locate my visual component by adding a song. The title, artist, and genre popups displays an image
+to represent adding a song. (./data/addSongImage.jpg).
+- You can save the state of my application by clicking "Yes" or "No" before exiting the application.
+- You can reload the state of my application by clicking "Yes" or "No" when opening the application.

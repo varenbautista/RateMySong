@@ -50,6 +50,7 @@ public class RateMySongApp {
     private void displayMenu() {
         System.out.println("Please select an option:\n");
         System.out.println("\ta -> add a song to your music library");
+        System.out.println("\tr -> remove a song from your music library");
         System.out.println("\tv -> view your music libary");
         System.out.println("\ts -> search for a song");
         System.out.println("\tsl -> save library to file");
@@ -63,6 +64,9 @@ public class RateMySongApp {
         switch (input) {
             case "a":
                 addSong();
+                break;
+            case "r":
+                removeSong();
                 break;
             case "v":
                 viewSongs();
@@ -130,6 +134,18 @@ public class RateMySongApp {
         library.addSong(song);
         System.out.println("New song " + song.getTitle() 
                             + " added with a total score of: " + song.calculateTotalScore());
+    }
+    private void removeSong() {
+        System.out.println("Please enter the song's title:");
+        String search = scanner.nextLine().toLowerCase();
+        Song song = library.findSong(search);
+
+        if (song != null) {
+            library.removeSong(song);
+            System.out.println("Song removed.");
+        } else {
+            System.out.println("Song not found");
+        }
     }
 
     // MODIFIES: this

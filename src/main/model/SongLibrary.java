@@ -29,6 +29,12 @@ public class SongLibrary implements Writable {
         library.add(song);
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes a song from the library
+    public void removeSong(Song song) {
+        library.remove(song);
+    }
+
     // EFFECTS: returns the number of songs in the library
     public int getSongCount() {
         return library.size();

@@ -51,6 +51,15 @@ public class SongLibraryTest {
     }
 
     @Test
+    void testRemoveSong() {
+        library.addSong(testSong1);
+        assertEquals(testSong1, library.getIndex(0));
+
+        library.removeSong(testSong1);
+        assertEquals(0, library.getSongCount());
+    }
+
+    @Test
     void testGetSongCount() {
         library.addSong(testSong1);
         assertEquals(1, library.getSongCount());

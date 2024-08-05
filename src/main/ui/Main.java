@@ -1,13 +1,10 @@
 package ui;
 
-import java.io.FileNotFoundException;
-
+// represents the main program execution
 public class Main {
+
+    //EFFECTS: runs the graphical user interface for the application
     public static void main(String[] args) {
-        try {
-            new RateMySongApp();
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to run. File not found");
-        }
+        new Gui();
     }
 }
