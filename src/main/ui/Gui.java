@@ -4,6 +4,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import exceptions.InvalidRating;
+import model.EventLog;
+import model.Event;
 import model.Song;
 import model.SongLibrary;
 import persistence.JsonReader;
@@ -136,6 +138,7 @@ public class Gui extends JFrame {
     }
 
     // EFFECTS: initializes save song library prompt when exiting the application
+    //          prints event log upon exiting application
     private void savePrompt() {
         addWindowListener(new WindowAdapter() {
             @Override
@@ -153,8 +156,15 @@ public class Gui extends JFrame {
                     }
                     dispose();
                 }
+                printLog();
             }
         });
+    }
+
+    private void printLog() {
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.toString());
+        }
     }
 
     // creates an Action Listener for buttons
@@ -294,7 +304,7 @@ public class Gui extends JFrame {
         //          displays song if found
         //          otherwise displays error message
         private void searchSong() {
-            String title = getInput("Please enter the song title to be removed:", "Remove Song");
+            String title = getInput("Please enter the song title to be searched:", "Search Song");
             if (title == null || title.trim().isEmpty()) {
                 return;
             }

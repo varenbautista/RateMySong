@@ -27,12 +27,14 @@ public class SongLibrary implements Writable {
     // EFFECTS: adds a song to the library
     public void addSong(Song song) {
         library.add(song);
+        EventLog.getInstance().logEvent(new Event (song.getTitle() + " added to music library"));
     }
 
     // MODIFIES: this
     // EFFECTS: removes a song from the library
     public void removeSong(Song song) {
         library.remove(song);
+        EventLog.getInstance().logEvent(new Event (song.getTitle() + " removed from music library"));
     }
 
     // EFFECTS: returns the number of songs in the library
@@ -58,6 +60,7 @@ public class SongLibrary implements Writable {
                 }
             }
         }
+        EventLog.getInstance().logEvent(new Event ("Music library has been sorted"));
         return sortedSongs;
     }
 

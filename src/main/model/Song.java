@@ -55,6 +55,7 @@ public class Song implements Writable {
     public void setLyricsRating(int lyricsRating) throws InvalidRating {
         if (lyricsRating >= 1 && lyricsRating <= 5) {
             this.lyricsRating = lyricsRating;
+            EventLog.getInstance().logEvent(new Event ("Lyrics rating for " + title + " updated to " + lyricsRating));
         } else {
             throw new InvalidRating();
         }
@@ -66,6 +67,7 @@ public class Song implements Writable {
     public void setProdRating(int prodRating) throws InvalidRating {
         if (prodRating >= 1 && prodRating <= 5) {
             this.prodRating = prodRating;
+            EventLog.getInstance().logEvent(new Event ("Production rating for " + title + " updated to " + prodRating));
         } else {
             throw new InvalidRating();
         }
@@ -77,6 +79,7 @@ public class Song implements Writable {
     public void setVocalsRating(int vocalsRating) throws InvalidRating {
         if (vocalsRating >= 1 && vocalsRating <= 5) {
             this.vocalsRating = vocalsRating;
+            EventLog.getInstance().logEvent(new Event ("Vocals rating for " + title + " updated to " + vocalsRating));
         } else {
             throw new InvalidRating();
         }
@@ -84,6 +87,7 @@ public class Song implements Writable {
 
     public void setIsFavourite(boolean input) {
         this.isFavourite = input;
+        EventLog.getInstance().logEvent(new Event (title + " favourite status updated to " + input));
     }
 
     public boolean getIsFavourite() {

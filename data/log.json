@@ -2,7 +2,7 @@
     {
         "artist": "Lana Del Rey",
         "genre": "Alt Rock",
-        "lyrics rating": 5,
+        "lyrics rating": 4,
         "title": "Happiness is a Butterfly",
         "vocals rating": 5,
         "production rating": 5,
@@ -20,10 +20,10 @@
     {
         "artist": "Charli XCX",
         "genre": "Hyperpop",
-        "lyrics rating": 3,
+        "lyrics rating": 5,
         "title": "Vroom Vroom",
-        "vocals rating": 4,
+        "vocals rating": 5,
         "production rating": 5,
-        "is favourite": false
+        "is favourite": true
     }
 ]}

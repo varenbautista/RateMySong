@@ -2,7 +2,8 @@ package persistence;
 
 import java.io.*;
 import org.json.JSONObject;
-import model.SongLibrary;
+
+import model.*;
 
 // Adapted from JsonSerializationDemo
 // Represents a writer that writes JSON representation of songLibrary to file
@@ -28,6 +29,7 @@ public class JsonWriter {
     public void write(SongLibrary sl) {
         JSONObject json = sl.toJson();
         saveToFile(json.toString(TAB));
+        EventLog.getInstance().logEvent(new Event ("Music Library saved"));
     }
 
     private void saveToFile(String json) {

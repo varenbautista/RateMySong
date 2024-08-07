@@ -40,3 +40,54 @@ status.
 to represent adding a song. (./data/addSongImage.jpg).
 - You can save the state of my application by clicking "Yes" or "No" before exiting the application.
 - You can reload the state of my application by clicking "Yes" or "No" when opening the application.
+
+# Phase 4: Task 2
+Wed Aug 07 13:50:00 PDT 2024
+Music library has been sorted
+Wed Aug 07 13:50:02 PDT 2024
+Music Library loaded
+
+Wed Aug 07 13:50:02 PDT 2024
+Lyrics rating for Happiness is a Butterfly updated to 4
+Wed Aug 07 13:50:02 PDT 2024
+Production rating for Happiness is a Butterfly updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Vocals rating for Happiness is a Butterfly updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Happiness is a Butterfly favourite status updated to true
+Wed Aug 07 13:50:02 PDT 2024
+Happiness is a Butterfly added to music library
+
+Wed Aug 07 13:50:02 PDT 2024
+Lyrics rating for Back to December updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Production rating for Back to December updated to 3
+Wed Aug 07 13:50:02 PDT 2024
+Vocals rating for Back to December updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Back to December favourite status updated to true
+Wed Aug 07 13:50:02 PDT 2024
+Back to December added to music library
+
+Wed Aug 07 13:50:02 PDT 2024
+Lyrics rating for Vroom Vroom updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Production rating for Vroom Vroom updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Vocals rating for Vroom Vroom updated to 5
+Wed Aug 07 13:50:02 PDT 2024
+Vroom Vroom favourite status updated to true
+Wed Aug 07 13:50:02 PDT 2024
+Vroom Vroom added to music library
+
+Wed Aug 07 13:50:02 PDT 2024
+Music library has been sorted
+Wed Aug 07 13:50:04 PDT 2024
+Music Library saved
+
+# Phase 4: Task 3
+- If I had more time, I would refactor my code to make it more than a song rater, but a product rater in general
+(songs, audiobooks, podcasts, etc). I would implement an abstract class called Product and List of Product, and 
+have Song, Audiobook, Podcast, and other products extend the Product class, and SongLibrary, AudiobookLibrary, and
+PodcastLibrary. These libraries/ playlist would then display in the GUI. The abstract classes would make it easier
+to implement additional types of products for the user to rate. 

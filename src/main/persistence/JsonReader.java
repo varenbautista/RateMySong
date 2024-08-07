@@ -10,8 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import exceptions.InvalidRating;
-import model.Song;
-import model.SongLibrary;
+import model.*;
 
 // Adapted from JsonSerializationDemo
 // Represents a reader that reads songLibrary from JSON data stored in file
@@ -28,6 +27,9 @@ public class JsonReader {
     public SongLibrary read()  throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
+
+        EventLog.getInstance().logEvent(new Event ("Music Library loaded"));
+
         return parseSongLibrary(jsonObject);
     }
 
