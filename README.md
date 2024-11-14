@@ -1,7 +1,7 @@
 # My Personal Project: Rate My Song
 
 ## What Will the Application Do?
-For my final project of CPSC 210 Software Construction, I will be making a **Song Rating Application**
+For my personal project, I will be making a **Song Rating Application**
 based on the songs inputted by the user. Users will be able to input songs, rate the lyricism, production,
 and vocals on a scale of 1 to 5, and add notes as to what they did and did not like about the song. 
 The user will then be able to view their list of songs from most liked to least liked based on each song's
