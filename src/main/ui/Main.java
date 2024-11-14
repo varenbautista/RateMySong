@@ -1,5 +1,7 @@
 package ui;
 
+import model.Song;
+
 // represents the main program execution
 public class Main {
 
